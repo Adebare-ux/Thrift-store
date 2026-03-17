@@ -3,7 +3,7 @@ import { useState } from "react";
 // ─────────────────────────────────────────────────────────────
 // CONFIG — only one thing to fill in!
 // ─────────────────────────────────────────────────────────────
-const WHATSAPP_NUMBER = "+2348110097064";
+const WHATSAPP_NUMBER = "08110097064";
 // Replace with your WhatsApp number in international format.
 // No +, no spaces, no dashes.
 // Examples:
@@ -21,21 +21,13 @@ const CATS = [
   "Outerwear",
   "Accessories",
 ];
-const PAYMENTS = [
-  "Pay on Delivery",
-  "Bank Transfer",
-  "PayPal",
-  "Cash App",
-  "Venmo",
-];
+const PAYMENTS = ["Pay on Delivery", "Bank Transfer"];
 
 const EMPTY = {
   fullName: "",
-  email: "",
   phone: "",
   address: "",
   city: "",
-  zip: "",
   size: "",
   category: "",
   items: "",
@@ -49,7 +41,6 @@ function buildMessage(f) {
     `🛍️ *NEW ORDER — Second Hand Saints*\n\n` +
       `👤 *Customer Details*\n` +
       `Name: ${f.fullName}\n` +
-      `Email: ${f.email}\n` +
       `Phone: ${f.phone}\n\n` +
       `🛍️ *Order Details*\n` +
       `Items: ${f.items}\n` +
@@ -59,7 +50,7 @@ function buildMessage(f) {
       `Payment: ${f.paymentMethod}\n\n` +
       `📍 *Delivery Address*\n` +
       `${f.address}\n` +
-      `${f.city}, ${f.zip}\n\n` +
+      `${f.city}\n\n` +
       `📝 *Notes*\n` +
       `${f.notes || "None"}`,
   );
@@ -160,36 +151,19 @@ export default function OrderSection() {
 
                 <form onSubmit={handleSubmit}>
                   <div className="form-section-label">👤 Your Details</div>
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="fullName">
-                        Full Name
-                      </label>
-                      <input
-                        id="fullName"
-                        name="fullName"
-                        className="form-input"
-                        placeholder="Jane Doe"
-                        value={form.fullName}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="email">
-                        Email
-                      </label>
-                      <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        className="form-input"
-                        placeholder="jane@email.com"
-                        value={form.email}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="fullName">
+                      Full Name
+                    </label>
+                    <input
+                      id="fullName"
+                      name="fullName"
+                      className="form-input"
+                      placeholder="Jane Doe"
+                      value={form.fullName}
+                      onChange={handleChange}
+                      required
+                    />
                   </div>
                   <div className="form-group">
                     <label className="form-label" htmlFor="phone">
@@ -322,41 +296,25 @@ export default function OrderSection() {
                       id="address"
                       name="address"
                       className="form-input"
-                      placeholder="123 Vintage Lane, Apt 4B"
+                      placeholder="No 2 Lekki Street"
                       value={form.address}
                       onChange={handleChange}
                       required
                     />
                   </div>
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="city">
-                        City
-                      </label>
-                      <input
-                        id="city"
-                        name="city"
-                        className="form-input"
-                        placeholder="New York"
-                        value={form.city}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                    <div className="form-group">
-                      <label className="form-label" htmlFor="zip">
-                        ZIP / Postal Code
-                      </label>
-                      <input
-                        id="zip"
-                        name="zip"
-                        className="form-input"
-                        placeholder="10001"
-                        value={form.zip}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
+                  <div className="form-group">
+                    <label className="form-label" htmlFor="city">
+                      City
+                    </label>
+                    <input
+                      id="city"
+                      name="city"
+                      className="form-input"
+                      placeholder="Lagos"
+                      value={form.city}
+                      onChange={handleChange}
+                      required
+                    />
                   </div>
 
                   <div className="form-group" style={{ marginTop: "4px" }}>
